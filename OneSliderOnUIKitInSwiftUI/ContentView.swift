@@ -13,10 +13,14 @@ struct ContentView: View {
                 UITextViewRepresentation(theWord: "100", theColor: .black)
                     .fixedSize()
             }
-            UIButtonViewRepresentation(theColor: .blue, textButton: "Проверь меня!")
+            UIButtonViewRepresentation(theColor: .blue, textButton: "Проверь меня!") {
+                print("Check me!")
+            }
                 .fixedSize()
                 .padding()
-            UIButtonViewRepresentation(theColor: .blue, textButton: "Начать заново")
+            UIButtonViewRepresentation(theColor: .blue, textButton: "Начать заново") {
+                print("Start again")
+            }
                 .fixedSize()
         }
         .padding()
