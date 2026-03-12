@@ -24,10 +24,11 @@ struct UISliderViewRepresentation: UIViewRepresentable {
         
         // Используем abs
         let range = abs(uiView.value - targetValue)
-        let colorSlider = CGFloat(1.0 - (range / uiView.maximumValue))
+        let maxRange = max(targetValue, Float(uiView.maximumValue - targetValue))
+        let colorSlider = CGFloat(1.0 - (range / maxRange))
         
         //  Установка цвета
-        uiView.minimumTrackTintColor = UIColor(
+        uiView.thumbTintColor = UIColor(
             red: colorSlider,
             green: 1.0 - colorSlider,
             blue: 1.0 - colorSlider,
