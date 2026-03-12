@@ -14,6 +14,18 @@ struct UISliderViewRepresentation: UIViewRepresentable {
     func updateUIView(_ uiView: UISlider, context: Context) {
         sliderValue = uiView.value
     }
+    
+    class Coordinator: NSObject {
+        @Binding var sliderValue: Float
+        
+        init(sliderValue: Binding<Float>) {
+            _sliderValue = sliderValue
+        }
+        
+        @objc func sliderValueChanged(_ sender: UISlider) {
+            sliderValue = sender.value
+        }
+    }
 }
 
 #Preview {
