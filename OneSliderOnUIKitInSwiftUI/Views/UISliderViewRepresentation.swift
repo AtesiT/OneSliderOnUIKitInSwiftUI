@@ -26,14 +26,14 @@ struct UISliderViewRepresentation: UIViewRepresentable {
         let range = abs(uiView.value - targetValue)
         
         //  Для установки значения Alpha (здесь будет 0. .. число)
-        let alphaLevel = range / 100
+        let alphaLevel = CGFloat(range / 100)
         
         //  Установка цвета
         //  Красный остаётся 1.0, меняем сам green and blue
         uiView.thumbTintColor = UIColor(
             red: 1.0,
-            green: CGFloat(alphaLevel),
-            blue: CGFloat(alphaLevel),
+            green: alphaLevel,
+            blue: alphaLevel,
             alpha: 1.0
         )
     }

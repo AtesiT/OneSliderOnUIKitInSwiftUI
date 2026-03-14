@@ -14,7 +14,7 @@ struct ContentView: View {
             HStack {
                 UITextViewRepresentation(theWord: "0", theColor: .black)
                     .fixedSize()
-                UISliderViewRepresentation(sliderValue: $currentValue)
+                UISliderViewRepresentation(sliderValue: $currentValue, targetValue: Float(target))
                 UITextViewRepresentation(theWord: "100", theColor: .black)
                     .fixedSize()
             }
