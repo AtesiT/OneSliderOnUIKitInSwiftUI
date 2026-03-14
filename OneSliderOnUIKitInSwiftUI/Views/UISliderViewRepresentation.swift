@@ -22,16 +22,18 @@ struct UISliderViewRepresentation: UIViewRepresentable {
     func updateUIView(_ uiView: UISlider, context: Context) {
         uiView.value = sliderValue
         
-        // Используем abs
+        // Узнаём разницу между тем значением, что нужно было найти и тем, которое выбрал пользователь
         let range = abs(uiView.value - targetValue)
-        let maxRange = max(targetValue, Float(uiView.maximumValue - targetValue))
-        let colorSlider = CGFloat(1.0 - (range / maxRange))
+        
+        //  Для установки значения Alpha (здесь будет 0. .. число)
+        let alphaLevel = range / 100
         
         //  Установка цвета
+        //  Красный остаётся 1.0, меняем сам green and blue
         uiView.thumbTintColor = UIColor(
-            red: colorSlider,
-            green: 1.0 - colorSlider,
-            blue: 1.0 - colorSlider,
+            red: 1.0,
+            green: CGFloat(alphaLevel),
+            blue: CGFloat(alphaLevel),
             alpha: 1.0
         )
     }
