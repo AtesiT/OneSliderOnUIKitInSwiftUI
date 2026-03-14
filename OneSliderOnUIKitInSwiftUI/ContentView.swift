@@ -32,7 +32,7 @@ struct ContentView: View {
                 .fixedSize()
                 .padding()
             UIButtonViewRepresentation(theColor: .blue, textButton: "Начать заново") {
-                print("Start again")
+                target = Int.random(in: 0...100)
             }
                 .fixedSize()
         }
